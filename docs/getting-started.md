@@ -30,10 +30,19 @@ We can also do with these, but will be covered in a different section:
 * With maven archetypes/fabric8 quickstarts
 
 
+### Spring Initializr or existing Spring projects
 
-### Spring Initializr and friends
+STS, start.spring.io, and the spring-boot CLI all use Spring Initializr under the covers. 
 
-STS, start.spring.io, and the spring-boot CLI all use Spring Initializr under the covers. At the moment, the best way to get started with the Fabric8 tooling is by adding the Fabric8 Maven Plugin:
+To kubernetes enable your Spring projectyou will need to enable the [fabric8 maven plugin](http://maven.fabric8.io/). 
+
+The simplest way to do this is by using the [fabric8:setup](https://maven.fabric8.io/#fabric8:setup) goal from the maven plugin; this will add the necessary maven plugin configuration to your `pom.xml` file.
+
+```
+mvn io.fabric8:fabric8-maven-plugin:${fabric8.maven.plugin.version}:setup
+```
+
+Or you can manually add the following section to your `pom.xml` by hand:
 
 ```
 <build>
