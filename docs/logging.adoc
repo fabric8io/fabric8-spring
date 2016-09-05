@@ -1,0 +1,10 @@
+== Logging
+
+Logging is a key part of being able to understand Microservices and diagnose issues. Consolidating log statements and events and being able to query and visualise them is an extremely useful tool.
+
+When running the Fabric8 Microservices Platform we recommend running the link:../logging.html[Logging Microservices] which runs http://www.elasticsearch.com/products/elasticsearch/[Elasticsearch] for the back end storage and http://www.elasticsearch.com/products/kibana/[Kibana] as the front end and fluentd as the collector.
+
+As a Microservice developer, you get _logging as a service_ for free with the link:../logging.html[Logging Microservices], though its recommended that you:
+
+* write logs to standard output rather than to files on disk
+* ideally use JSON output so thats its easy to automically parse it

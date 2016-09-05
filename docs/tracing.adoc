@@ -1,0 +1,7 @@
+== Tracing
+
+One of the biggest challenges of Microservices is comprehending whats really happening at runtime. Certainly link:logging.html[logging] and link:metrics.html[metrics] really help. In addition tracing can really help comprehend how Microservices interact and diagnose performance issues.
+
+To get started with tracing in fabric8 https://blog.fabric8.io/kubernetes-integration-with-zipkin-d6c195dd596d#.nug1hbi2n[check out this blog and vieo]. 
+
+For more details check out the https://github.com/fabric8io/kubernetes-zipkin[kubernetes zipkin project] along with the http://zipkin.io/[zipkin site]
