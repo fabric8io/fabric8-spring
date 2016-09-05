@@ -1,9 +1,0 @@
-[[monitoring]]
-
-= Monitoring
-
-Capturing historical metrics is essential to diagnose issues involving your Microservices. Its also very useful for link:elasticity.html[auto scaling]
-
-So we recommend running the link:../metrics.html[Metrics Microservice] which uses * http://prometheus.io/[Prometheus] as the back end storage service and REST API and then http://grafana.org/[Grafana] as the console to view, query and analyze metrics.
-
-If you use Java then using a https://github.com/prometheus/jmx_exporter[JMX Exporter YAML file] will configure which JMX metrics to export to Prometheus.
