@@ -1,4 +1,4 @@
-= fabric8io/fabric8-spring
+= Fabric8 Spring
 
 :revnumber: {version}
 :revdate: {localdate}
