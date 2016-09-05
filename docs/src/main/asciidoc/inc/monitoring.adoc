@@ -1,4 +1,6 @@
-== Monitoring
+[[monitoring]]
+
+= Monitoring
 
 Capturing historical metrics is essential to diagnose issues involving your Microservices. Its also very useful for link:elasticity.html[auto scaling]
 

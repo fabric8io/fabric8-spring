@@ -1,4 +1,6 @@
-== Circuit Breakers
+[[circuit-breakers]]
+
+= Circuit Breakers
 
 Adding circuit breakers via the https://github.com/Netflix/Hystrix[Hystrix] library helps you fail fast or provide a fallback if any dependent service either goes down or goes too slow.
 
@@ -10,7 +12,7 @@ Hystrix is a library rather than anything else, which means that it can just be 
 
 == link:#spring-cloud-netflix[Spring Cloud - Netflix]
 
-=== Standalone applications
+== Standalone applications
 
 Using Hystrix is as simple as implementing the https://github.com/Netflix/Hystrix/blob/master/hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommand.java[HystrixCommand] interface.
 Borrowed from https://github.com/Netflix/Hystrix/tree/master/hystrix-examples[hystrix examples] here is a simple _Hello World_ implementation:
@@ -41,7 +43,7 @@ new CommandHelloWorld().execute();
 
 This is enough to implement a circuit breaker. 
 
-==== Exposing Hystrix metrics
+=== Exposing Hystrix metrics
 
 To expose metrics from the circuit breaker one needs to expose the https://github.com/Netflix/Hystrix/blob/master/hystrix-contrib/hystrix-metrics-event-stream/src/main/java/com/netflix/hystrix/contrib/metrics/eventstream/HystrixMetricsStreamServlet.java[HystrixMetricsStreamServlet], which can be found inside:
 
@@ -70,19 +72,19 @@ To register the servlet one needs to simply add the following inside the web.xml
     </servlet-mapping>
 ----
 
-==== Using the Hystrix dashboard
+=== Using the Hystrix dashboard
 
 An application that is link:#exposing-hystrix-metrics[exposing its hystrix metrics stream] can take advantage of the visualization capabilities of the https://github.com/Netflix/Hystrix/tree/master/hystrix-dashboard[Hystrix Dashboard].
 
 This is as simple as pointing the dashboard to the url of the hystrix metrics stream. 
 
-==== Using Turbine to aggregate multiple hystrix stream
+=== Using Turbine to aggregate multiple hystrix stream
 
 To make the most out of the Hystrix dashboard you can aggregate multiple streams and have the dashboard visualize multiple circuit breakers at once.
 
 The aggregation is performed by https://github.com/Netflix/Turbine/wiki[Turbine].
 
-=== Kubeflix
+== Kubeflix
 
 Everything that has been mentioned so far is something that can easily used inside simple java application. But if those application are to be run inside Kubernetes, there will be some additional requirements:
 
@@ -90,7 +92,7 @@ Everything that has been mentioned so far is something that can easily used insi
 * link:#turbine-server-docker-image[Turbine Server Docker image]
 * link:#hystrix-dashboard-docker-image[Hystrix Dashboard Docker image]
 
-===== Circuit Breaker Discovery
+=== Circuit Breaker Discovery
 
 In most cloud environments ip addresses are not known in advanced and kubernetes is no exception. This means that we can't have Turbine pre-configured with a fixed set of urls but instead we need a discovery mechanism.
 This mechanism is provided by Kubeflix and it pretty much allows to:
@@ -98,7 +100,7 @@ This mechanism is provided by Kubeflix and it pretty much allows to:
 * Discovery all endpoints in the current that have been labeled as `hystrix.enabled`.
 * Define multiple clusters that are composed by multiple endpoints accross multiple namespaces.
 
-===== Turbine Server Docker image
+=== Turbine Server Docker image
 
 Having a discovery implementation for turbine is not enough. We also need a turbine server app packaged as a docker container and of course the required Kubernetes configuration.
 Kubeflix provides both (image and configuration).
@@ -110,7 +112,7 @@ The image is a simple webapp, pre-configured with the link:#circuit-breaker-disc
 
 and that makes it easier for the user to define his own clusters or tune turbine to his own needs.
 
-===== Hystrix Dashboard Docker image
+=== Hystrix Dashboard Docker image
 
 For the Hystrix dashboard we also need to package it as a Docker container and create the required Kubernetes configuration.
 Again Kubeflix provides both. On top of that web console is configured to reference Turbine Servers DNS name *out of the box*. 
@@ -119,7 +121,7 @@ For more details, please visit the https://github.com/fabric8io/kubeflix[kubefli
 
 —
 
-=== Wildfly Swarm Netflix
+== Wildfly Swarm Netflix
 
 Taken directly from the http://wildfly-swarm.io[Wildfly Swarm Website]:
 

@@ -1,4 +1,6 @@
-== Load Balancing
+[[load-balancing]]
+
+= Load Balancing
 
 When you have one or more pods implementing a link:../services.html[service] then you need to load balance requests across them.
 

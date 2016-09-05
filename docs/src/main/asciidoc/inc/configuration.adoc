@@ -1,4 +1,6 @@
-== Configuration
+[[configuration]]
+
+= Configuration
 
 As developers we usually try to make the software we create easy to configure so that it can be used in any environment.
 
@@ -22,7 +24,7 @@ This assumes the configuration will be the same in each environment due to the a
 
 For any environment specific values then you could specify environment variables in your kubernetes resource. e.g. your http://kubernetes.io/docs/user-guide/deployments/[Kubernetes Deployments] can include `env` values in the pod template's container section.
 
-Though its good practice maximise the amount of immutable arfifacts you have (e.g. docker images and kubernetes resources) and to minimise the amount of artifacts you need to modify for each environment. So for per-environment configuration we recommend one of the following approaches:
+Though its good practice maximise the amount of immutable arfefacts you have (e.g. docker images and kubernetes resources) and to minimise the amount of artifacts you need to modify for each environment. So for per-environment configuration we recommend one of the following approaches:
 
 === ConfigMap
 

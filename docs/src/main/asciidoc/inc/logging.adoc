@@ -1,4 +1,6 @@
-== Logging
+[[logging]]
+
+= Logging
 
 Logging is a key part of being able to understand Microservices and diagnose issues. Consolidating log statements and events and being able to query and visualise them is an extremely useful tool.
 

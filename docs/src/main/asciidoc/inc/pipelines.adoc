@@ -1,4 +1,6 @@
-== Pipelines
+[[pipelines]]
+
+= Pipelines
 
 To go faster developing Microservices its great to automate everything and have a _Continuous Deployment pipeline_ for each Microservice. The pipeline then defines how to:
 
