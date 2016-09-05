@@ -1,8 +1,8 @@
-[[create-microservice]]
+[[create-microservice-via-console]]
 
-= Create a microservice
+= Create a microservice via the console
 
-The easiest way to configure the Pipeline for your project is via the link:../console.html[fabric8 developer console].
+The easiest way to configure the Pipeline for your project is via the link:http://fabric8.io/guide/console.html[fabric8 developer console].
 
 When you open the fabric8 console you should see a screen like this:
 

@@ -1,22 +1,6 @@
-= Getting Started
+[[create-your-spring-boot-app]]
 
-This document will help you get started building applications with Spring Boot that run on Kubernetes and various distributions of Kubernetes (ie, OpenShift v3.x).
-
-== Make JAR not WAR. We need Moar!
-
-Spring Boot is a great way to build simple Java microservices and has a vibrant ecosystem to help facilitate. Spring Boot and its surrounding ecosystem go to great lengths to help developers get started with microservices including taking some of the pain out of configuration, health checking, boostrapping etc. For example, Spring Boot prefers an "uber-jar" model of packaging a microservice which is executable on its own. This helps reduce the many mistakes that can happen when trying to juggle application servers + WARs/EARs as well as simplifies the classloading model for those apps that can get away with it. When we're deploying lots of microservices, we want to eliminate configuration drift as much as possible and reason about our apps without adding complications between environments.
-
-Building to uber jars does help with this but is not the end of the story. As we further our quest to reduce configuration drift between environments for our apps we must also be aware of this fact: A Java based microservice depends fully on a JVM. The JVM _is_ a very important implementation detail of our Java application. As are the dependencies and transitive dependencies of the JVM (libc, etc). A developer that created an app using a particular JVM on, let's say, Windows could potentially behave quite differently on a different JVM running on Linux (in a QA environment, let's say). You'll want a way to capture the complete snapshot of binaries that make up you application and Linux Containers and associated image formats is a great way to do that. 
-
-== Isn't Docker and Kubernetes complicated?
-
-There's an interesting dynamic between "yah we need this" and "well, it's too complicated". We can hope and pray and ignore it? But really, what if we just made it easier to build your Docker images and deploy to Kubernetes? That's what the fabric8 tooling does for you. It allows you to just use the same developer tools you use today and take advantage of building and deploying cloud-native applications on Kubernetes. 
-
-== Do I need to do anything different for my Spring Boot app?
-
-No! Here's how we get started.
-
-== Create your Spring Boot application
+= Create your Spring Boot application
 
 Go to http://start.spring.io[http://start.spring.io] and create your app. That's it. You have other options too:
 
@@ -31,7 +15,7 @@ We can also do with these, but will be covered in a different section:
 * With JBoss Forge CLI
 * With maven archetypes/fabric8 quickstarts
 
-=== Spring Initializr or existing Spring projects
+== Spring Initializr or existing Spring projects
 
 STS, start.spring.io, and the spring-boot CLI all use Spring Initializr under the covers. 
 
@@ -66,7 +50,7 @@ Or you can manually add the following section to your `pom.xml` by hand:
   ...       
 ----
 
-=== JBoss Developer Studio
+== JBoss Developer Studio
 
 JBoss Developer Studio has JBoss Forge tooling installed by default. Press `CTRL+4` or `CMD+4` if on Mac to get the forge window. If you haven't already, install the Fabric8 `devops` plugin which will enable the Spring Boot project wizards. You can install the addon from within JBDS by hitting `CTRL/CMD+4` and type `addon` and find the option for installing. Use the coordinate below:
 
@@ -106,7 +90,7 @@ You're now in business! Skip to the section titled "Spring Boot on Kubernetes" i
 <iframe src="https://player.vimeo.com/video/180053437" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <p><a href="https://vimeo.com/180053437">Spring Boot, Spring Cloud with Kubernetes and Fabric8</a> from <a href="https://vimeo.com/ceposta">Christian Posta</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
-=== IntelliJ
+== IntelliJ
 
 JBoss Forge doesn't come out of the box with IntelliJ but through IntelliJ's amazing plugin system, we can easily added it! Just note, you should be running IntelliJ with JDK 1.8+. Newer versions of IntelliJ bundle and use JDK 1.8 out of the box. If you've an older version of IntelliJ, hit `CMD/CTRL+SHIFT+A` to get the `All Actions` dialog box and start typing `SDK`. Follow the instructions to change the SDK. 
 
@@ -331,7 +315,7 @@ NAME                READY     STATUS    RESTARTS   AGE
 ipservice-1-v3hjc   1/1       Running   0          1m
 ----
 
-=== OpenShif s2i binary builds
+== OpenShif s2i binary builds
 
 What if we wanted to use OpenShift to build the Docker image? What if we weren't able to install a Docker daemon locally and wanted to use OpenShift to do the docker builds? Easy! Just change the mode from (default: `kubernetes`) to `openshift`:
 
@@ -353,7 +337,9 @@ Then the maven plugin will create the appropriate OpenShift DeploymentConfig and
 
 This approach is great when you don't have access to a Docker daemon to kick off docker builds. Just let the OpenShift Container Platform do it for you.
 
-== We want to continuously deliver Spring Boot microservices!
+== Continuous Delivery
+
+We want to continuously deliver Spring Boot microservices!
 
 Creating a project as we did above is okay to get started. A lot of times we create projects and then for each one have to go through the steps of setting up a git repository, setting up builds in some kind of CI system, and then fabricating a deployment pipeline that suits us. Then we have to connect all those pieces together. If we want to use containers and run them in Kubernetes then we have to go try find all of the plugins and configure them (and understand the nuance of each). What if we could just do all of this with a couple clicks? 
 
@@ -408,9 +394,3 @@ If you go back to the console after the builds take place, you should see that y
 image:f8-success-ci-cd.png[f8 login gogs]
 
 Your new Spring Boot app was checked into git, a new Jenkins Pipeline continuous delivery pipeline was set up, all builds are integrated with Nexus and the Docker registry and you've even deployed into the Staging environment. Take a browse around the Dashboard to get more familiar. The current build is waiting in an "approval" state before it can get to production. In the Build log console you should be able to see the button to "Approve" the build or "Deny" it. Additionally, if we had deployed the chat applications (LetsChat/HipChat/Slack,etc) then we could have approved/denied this build via ChatOps. Or, we could have hooked it up to a ticketing system. Or, if you like crusty old email, we could have done it like that as well.
-
-== Where to next?
-
-We hope this is enough to get you going. We've created Spring Boot applications from scratch and used the Fabric8 tools to help us get our application into a Kubernetes cluster. We've also covered using the awesome Fabric8 console for bootstrapping your Spring Boot app and fabricating you a CI/CD pipeline to be able to continuously deliver your microservice in the cloud. Where to next?
-
-TBD

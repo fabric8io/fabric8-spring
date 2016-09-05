@@ -18,6 +18,7 @@ ifdef::basebackend-html[toc::[]]
 :numbered:
 
 
+include::inc/introduction.adoc[]
 include::inc/getting-started.adoc[]
 
 include::inc/createMicroservice.adoc[]
