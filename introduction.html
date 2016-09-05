@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>Logging</title>
+<title>Introduction</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -509,33 +509,52 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 </head>
-<body id="logging" class="article toc2 toc-left">
+<body id="introduction" class="article toc2 toc-left">
 <div id="header">
-<h1>Logging</h1>
+<h1>Introduction</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
-
+<ul class="sectlevel1">
+<li><a href="#make-jar-not-war-we-need-moar">Make JAR not WAR. We need Moar!</a></li>
+<li><a href="#isn-t-docker-and-kubernetes-complicated">Isn&#8217;t Docker and Kubernetes complicated?</a></li>
+<li><a href="#do-i-need-to-do-anything-different-for-my-spring-boot-app">Do I need to do anything different for my Spring Boot app?</a></li>
+</ul>
 </div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>Logging is a key part of being able to understand Microservices and diagnose issues. Consolidating log statements and events and being able to query and visualise them is an extremely useful tool.</p>
+<p>This document will help you get started building applications with Spring Boot that run on Kubernetes and various distributions of Kubernetes (ie, OpenShift v3.x).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="make-jar-not-war-we-need-moar">Make JAR not WAR. We need Moar!</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Spring Boot is a great way to build simple Java microservices and has a vibrant ecosystem to help facilitate. Spring Boot and its surrounding ecosystem go to great lengths to help developers get started with microservices including taking some of the pain out of configuration, health checking, boostrapping etc. For example, Spring Boot prefers an "uber-jar" model of packaging a microservice which is executable on its own. This helps reduce the many mistakes that can happen when trying to juggle application servers + WARs/EARs as well as simplifies the classloading model for those apps that can get away with it. When we&#8217;re deploying lots of microservices, we want to eliminate configuration drift as much as possible and reason about our apps without adding complications between environments.</p>
 </div>
 <div class="paragraph">
-<p>When running the Fabric8 Microservices Platform we recommend running the <a href="../logging.html">Logging Microservices</a> which runs <a href="http://www.elasticsearch.com/products/elasticsearch/">Elasticsearch</a> for the back end storage and <a href="http://www.elasticsearch.com/products/kibana/">Kibana</a> as the front end and fluentd as the collector.</p>
+<p>Building to uber jars does help with this but is not the end of the story. As we further our quest to reduce configuration drift between environments for our apps we must also be aware of this fact: A Java based microservice depends fully on a JVM. The JVM <em>is</em> a very important implementation detail of our Java application. As are the dependencies and transitive dependencies of the JVM (libc, etc). A developer that created an app using a particular JVM on, let&#8217;s say, Windows could potentially behave quite differently on a different JVM running on Linux (in a QA environment, let&#8217;s say). You&#8217;ll want a way to capture the complete snapshot of binaries that make up you application and Linux Containers and associated image formats is a great way to do that.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="isn-t-docker-and-kubernetes-complicated">Isn&#8217;t Docker and Kubernetes complicated?</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>As a Microservice developer, you get <em>logging as a service</em> for free with the <a href="../logging.html">Logging Microservices</a>, though its recommended that you:</p>
+<p>There&#8217;s an interesting dynamic between "yah we need this" and "well, it&#8217;s too complicated". We can hope and pray and ignore it? But really, what if we just made it easier to build your Docker images and deploy to Kubernetes? That&#8217;s what the fabric8 tooling does for you. It allows you to just use the same developer tools you use today and take advantage of building and deploying cloud-native applications on Kubernetes.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>write logs to standard output rather than to files on disk</p>
-</li>
-<li>
-<p>ideally use JSON output so thats its easy to automically parse it</p>
-</li>
-</ul>
+</div>
+</div>
+<div class="sect1">
+<h2 id="do-i-need-to-do-anything-different-for-my-spring-boot-app">Do I need to do anything different for my Spring Boot app?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>No! Here&#8217;s how we get started.</p>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">

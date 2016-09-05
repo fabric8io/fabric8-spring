@@ -515,63 +515,69 @@ table.CodeRay td.code>pre{padding:0}
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#getting-started">1. Getting Started</a>
+<li><a href="#introduction">1. Introduction</a>
 <ul class="sectlevel2">
 <li><a href="#make-jar-not-war-we-need-moar">1.1. Make JAR not WAR. We need Moar!</a></li>
 <li><a href="#isn-t-docker-and-kubernetes-complicated">1.2. Isn&#8217;t Docker and Kubernetes complicated?</a></li>
 <li><a href="#do-i-need-to-do-anything-different-for-my-spring-boot-app">1.3. Do I need to do anything different for my Spring Boot app?</a></li>
-<li><a href="#create-your-spring-boot-application">1.4. Create your Spring Boot application</a></li>
-<li><a href="#spring-boot-on-kubernetes">1.5. Spring Boot on Kubernetes</a></li>
-<li><a href="#we-want-to-continuously-deliver-spring-boot-microservices">1.6. We want to continuously deliver Spring Boot microservices!</a></li>
-<li><a href="#where-to-next">1.7. Where to next?</a></li>
 </ul>
 </li>
-<li><a href="#create-microservice">2. Create a microservice</a>
-<ul class="sectlevel3">
-<li><a href="#runtime-tabs">2.1. Runtime tabs</a></li>
-<li><a href="#demo">2.2. Demo</a></li>
-</ul>
-</li>
-<li><a href="#elasticity">3. Elasticity and Resilience</a>
+<li><a href="#create-your-spring-boot-app">2. Create your Spring Boot application</a>
 <ul class="sectlevel2">
-<li><a href="#operator-based-scaling">3.1. Operator-based scaling</a></li>
-<li><a href="#autoscaling">3.2. Autoscaling</a></li>
+<li><a href="#spring-initializr-or-existing-spring-projects">2.1. Spring Initializr or existing Spring projects</a></li>
+<li><a href="#jboss-developer-studio">2.2. JBoss Developer Studio</a></li>
+<li><a href="#intellij">2.3. IntelliJ</a></li>
+<li><a href="#spring-boot-on-kubernetes">2.4. Spring Boot on Kubernetes</a></li>
+<li><a href="#openshif-s2i-binary-builds">2.5. OpenShif s2i binary builds</a></li>
+<li><a href="#continuous-delivery">2.6. Continuous Delivery</a></li>
 </ul>
 </li>
-<li><a href="#service-discovery">4. Service Discovery</a>
-<ul class="sectlevel2">
-<li><a href="#kubernetes-service-discovery">4.1. Kubernetes Service Discovery</a></li>
-</ul>
-</li>
-<li><a href="#load-balancing">5. Load Balancing</a></li>
-<li><a href="#design-for-failure">6. Design for failure</a>
+<li><a href="#create-microservice-via-console">3. Create a microservice via the console</a>
 <ul class="sectlevel3">
-<li><a href="#maximize-service-availability">6.1. Maximize service availability</a></li>
-<li><a href="#self-healing">6.2. Self healing</a></li>
-<li><a href="#isolate-blast-radius-of-failures">6.3. Isolate blast radius of failures</a></li>
-<li><a href="#prove-your-system-has-been-designed-for-failure">6.4. Prove your system has been designed for failure</a></li>
+<li><a href="#runtime-tabs">3.1. Runtime tabs</a></li>
+<li><a href="#demo">3.2. Demo</a></li>
 </ul>
 </li>
-<li><a href="#configuration">7. Configuration</a>
-<ul class="sectlevel3">
-<li><a href="#include-configuration-inside-the-docker-image">7.1. Include configuration inside the docker image</a></li>
-<li><a href="#configmap">7.2. ConfigMap</a></li>
-<li><a href="#git">7.3. Git</a></li>
-<li><a href="#choosing-the-right-approach">7.4. Choosing the right approach</a></li>
-</ul>
-</li>
-<li><a href="#pipelines">8. Pipelines</a></li>
-<li><a href="#logging">9. Logging</a></li>
-<li><a href="#monitoring">10. Monitoring</a></li>
-<li><a href="#circuit-breakers">11. Circuit Breakers</a>
+<li><a href="#elasticity">4. Elasticity and Resilience</a>
 <ul class="sectlevel2">
-<li><a href="#a-href-spring-cloud-netflix-spring-cloud-netflix-a">11.1. <a href="#spring-cloud-netflix">Spring Cloud - Netflix</a></a></li>
-<li><a href="#standalone-applications">11.2. Standalone applications</a></li>
-<li><a href="#kubeflix">11.3. Kubeflix</a></li>
-<li><a href="#wildfly-swarm-netflix">11.4. Wildfly Swarm Netflix</a></li>
+<li><a href="#operator-based-scaling">4.1. Operator-based scaling</a></li>
+<li><a href="#autoscaling">4.2. Autoscaling</a></li>
 </ul>
 </li>
-<li><a href="#tracing">12. Tracing</a></li>
+<li><a href="#service-discovery">5. Service Discovery</a>
+<ul class="sectlevel2">
+<li><a href="#kubernetes-service-discovery">5.1. Kubernetes Service Discovery</a></li>
+</ul>
+</li>
+<li><a href="#load-balancing">6. Load Balancing</a></li>
+<li><a href="#design-for-failure">7. Design for failure</a>
+<ul class="sectlevel3">
+<li><a href="#maximize-service-availability">7.1. Maximize service availability</a></li>
+<li><a href="#self-healing">7.2. Self healing</a></li>
+<li><a href="#isolate-blast-radius-of-failures">7.3. Isolate blast radius of failures</a></li>
+<li><a href="#prove-your-system-has-been-designed-for-failure">7.4. Prove your system has been designed for failure</a></li>
+</ul>
+</li>
+<li><a href="#configuration">8. Configuration</a>
+<ul class="sectlevel3">
+<li><a href="#include-configuration-inside-the-docker-image">8.1. Include configuration inside the docker image</a></li>
+<li><a href="#configmap">8.2. ConfigMap</a></li>
+<li><a href="#git">8.3. Git</a></li>
+<li><a href="#choosing-the-right-approach">8.4. Choosing the right approach</a></li>
+</ul>
+</li>
+<li><a href="#pipelines">9. Pipelines</a></li>
+<li><a href="#logging">10. Logging</a></li>
+<li><a href="#monitoring">11. Monitoring</a></li>
+<li><a href="#circuit-breakers">12. Circuit Breakers</a>
+<ul class="sectlevel2">
+<li><a href="#a-href-spring-cloud-netflix-spring-cloud-netflix-a">12.1. <a href="#spring-cloud-netflix">Spring Cloud - Netflix</a></a></li>
+<li><a href="#standalone-applications">12.2. Standalone applications</a></li>
+<li><a href="#kubeflix">12.3. Kubeflix</a></li>
+<li><a href="#wildfly-swarm-netflix">12.4. Wildfly Swarm Netflix</a></li>
+</ul>
+</li>
+<li><a href="#tracing">13. Tracing</a></li>
 </ul>
 </div>
 </div>
@@ -585,7 +591,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="sect1">
-<h2 id="getting-started">1. Getting Started</h2>
+<h2 id="introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This document will help you get started building applications with Spring Boot that run on Kubernetes and various distributions of Kubernetes (ie, OpenShift v3.x).</p>
@@ -611,8 +617,11 @@ table.CodeRay td.code>pre{padding:0}
 <p>No! Here&#8217;s how we get started.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="create-your-spring-boot-application">1.4. Create your Spring Boot application</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="create-your-spring-boot-app">2. Create your Spring Boot application</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Go to <a href="http://start.spring.io">http://start.spring.io</a> and create your app. That&#8217;s it. You have other options too:</p>
 </div>
@@ -648,8 +657,8 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="spring-initializr-or-existing-spring-projects">1.4.1. Spring Initializr or existing Spring projects</h4>
+<div class="sect2">
+<h3 id="spring-initializr-or-existing-spring-projects">2.1. Spring Initializr or existing Spring projects</h3>
 <div class="paragraph">
 <p>STS, start.spring.io, and the spring-boot CLI all use Spring Initializr under the covers.</p>
 </div>
@@ -688,8 +697,8 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="jboss-developer-studio">1.4.2. JBoss Developer Studio</h4>
+<div class="sect2">
+<h3 id="jboss-developer-studio">2.2. JBoss Developer Studio</h3>
 <div class="paragraph">
 <p>JBoss Developer Studio has JBoss Forge tooling installed by default. Press <code>CTRL+4</code> or <code>CMD+4</code> if on Mac to get the forge window. If you haven&#8217;t already, install the Fabric8 <code>devops</code> plugin which will enable the Spring Boot project wizards. You can install the addon from within JBDS by hitting <code>CTRL/CMD+4</code> and type <code>addon</code> and find the option for installing. Use the coordinate below:</p>
 </div>
@@ -745,8 +754,8 @@ table.CodeRay td.code>pre{padding:0}
 &lt;p&gt;&lt;a href="https://vimeo.com/180053437"&gt;Spring Boot, Spring Cloud with Kubernetes and Fabric8&lt;/a&gt; from &lt;a href="https://vimeo.com/ceposta"&gt;Christian Posta&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="intellij">1.4.3. IntelliJ</h4>
+<div class="sect2">
+<h3 id="intellij">2.3. IntelliJ</h3>
 <div class="paragraph">
 <p>JBoss Forge doesn&#8217;t come out of the box with IntelliJ but through IntelliJ&#8217;s amazing plugin system, we can easily added it! Just note, you should be running IntelliJ with JDK 1.8+. Newer versions of IntelliJ bundle and use JDK 1.8 out of the box. If you&#8217;ve an older version of IntelliJ, hit <code>CMD/CTRL+SHIFT+A</code> to get the <code>All Actions</code> dialog box and start typing <code>SDK</code>. Follow the instructions to change the SDK.</p>
 </div>
@@ -787,9 +796,8 @@ table.CodeRay td.code>pre{padding:0}
 <p><span class="image"><img src="images/intellij-f-m-p-added.png" alt="intellij fmp added"></span></p>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="spring-boot-on-kubernetes">1.5. Spring Boot on Kubernetes</h3>
+<h3 id="spring-boot-on-kubernetes">2.4. Spring Boot on Kubernetes</h3>
 <div class="paragraph">
 <p>Once we have our Spring Boot microservice to our liking we want to be able to package it up and deliver it to our cluster running in the Cloud. Docker provides a great abstraction (the container!) for doing this. To be able to do this while running on Mac OS X or Windows, we&#8217;ll need a little help. We&#8217;ll need a Docker daemon and Kubernetes to do this. Here are a few options for getting started:</p>
 </div>
@@ -1010,8 +1018,9 @@ NAME                READY     STATUS    RESTARTS   AGE
 ipservice-1-v3hjc   1/1       Running   0          1m</code></pre>
 </div>
 </div>
-<div class="sect3">
-<h4 id="openshif-s2i-binary-builds">1.5.1. OpenShif s2i binary builds</h4>
+</div>
+<div class="sect2">
+<h3 id="openshif-s2i-binary-builds">2.5. OpenShif s2i binary builds</h3>
 <div class="paragraph">
 <p>What if we wanted to use OpenShift to build the Docker image? What if we weren&#8217;t able to install a Docker daemon locally and wanted to use OpenShift to do the docker builds? Easy! Just change the mode from (default: <code>kubernetes</code>) to <code>openshift</code>:</p>
 </div>
@@ -1038,9 +1047,11 @@ ipservice-1-v3hjc   1/1       Running   0          1m</code></pre>
 <p>This approach is great when you don&#8217;t have access to a Docker daemon to kick off docker builds. Just let the OpenShift Container Platform do it for you.</p>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="we-want-to-continuously-deliver-spring-boot-microservices">1.6. We want to continuously deliver Spring Boot microservices!</h3>
+<h3 id="continuous-delivery">2.6. Continuous Delivery</h3>
+<div class="paragraph">
+<p>We want to continuously deliver Spring Boot microservices!</p>
+</div>
 <div class="paragraph">
 <p>Creating a project as we did above is okay to get started. A lot of times we create projects and then for each one have to go through the steps of setting up a git repository, setting up builds in some kind of CI system, and then fabricating a deployment pipeline that suits us. Then we have to connect all those pieces together. If we want to use containers and run them in Kubernetes then we have to go try find all of the plugins and configure them (and understand the nuance of each). What if we could just do all of this with a couple clicks?</p>
 </div>
@@ -1122,22 +1133,13 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 <p>Your new Spring Boot app was checked into git, a new Jenkins Pipeline continuous delivery pipeline was set up, all builds are integrated with Nexus and the Docker registry and you&#8217;ve even deployed into the Staging environment. Take a browse around the Dashboard to get more familiar. The current build is waiting in an "approval" state before it can get to production. In the Build log console you should be able to see the button to "Approve" the build or "Deny" it. Additionally, if we had deployed the chat applications (LetsChat/HipChat/Slack,etc) then we could have approved/denied this build via ChatOps. Or, we could have hooked it up to a ticketing system. Or, if you like crusty old email, we could have done it like that as well.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="where-to-next">1.7. Where to next?</h3>
-<div class="paragraph">
-<p>We hope this is enough to get you going. We&#8217;ve created Spring Boot applications from scratch and used the Fabric8 tools to help us get our application into a Kubernetes cluster. We&#8217;ve also covered using the awesome Fabric8 console for bootstrapping your Spring Boot app and fabricating you a CI/CD pipeline to be able to continuously deliver your microservice in the cloud. Where to next?</p>
-</div>
-<div class="paragraph">
-<p>TBD</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="create-microservice">2. Create a microservice</h2>
+<h2 id="create-microservice-via-console">3. Create a microservice via the console</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The easiest way to configure the Pipeline for your project is via the <a href="../console.html">fabric8 developer console</a>.</p>
+<p>The easiest way to configure the Pipeline for your project is via the <a href="http://fabric8.io/guide/console.html">fabric8 developer console</a>.</p>
 </div>
 <div class="paragraph">
 <p>When you open the fabric8 console you should see a screen like this:</p>
@@ -1191,7 +1193,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 <p><span class="image"><img src="images/console-tools.png" alt="Clicking on the tools drop down to see development apps"></span></p>
 </div>
 <div class="sect3">
-<h4 id="runtime-tabs">2.1. Runtime tabs</h4>
+<h4 id="runtime-tabs">3.1. Runtime tabs</h4>
 <div class="paragraph">
 <p>The <code>Team</code> page has a <code>Runtime</code> tab that lets you browse the runtime of your development environment. Or from the home page you can click on an environment page to view its runtime.</p>
 </div>
@@ -1221,7 +1223,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect3">
-<h4 id="demo">2.2. Demo</h4>
+<h4 id="demo">3.2. Demo</h4>
 <div class="paragraph">
 <p>Here is a <a href="https://vimeo.com/170830750">video demonstrating how to create a microservice and then deploy and edit it via Continuous Delivery</a></p>
 </div>
@@ -1229,7 +1231,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect1">
-<h2 id="elasticity">3. Elasticity and Resilience</h2>
+<h2 id="elasticity">4. Elasticity and Resilience</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Your Microservices should be <strong>highly available</strong> and resilient to failure. Ideally each Microservice should also be <em>elastic</em> so that you can easily scale up or down the number of containers used for each Microservice. Some Microservices may only require one container; others may require many.</p>
@@ -1247,13 +1249,13 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 <p>The Replica Set uses a <em>selector</em> to keep watching the available pods matching the selectors labels. If there are not enough pods running it will spin up more; or if there are too many pods running it will terminate the extra pods.</p>
 </div>
 <div class="sect2">
-<h3 id="operator-based-scaling">3.1. Operator-based scaling</h3>
+<h3 id="operator-based-scaling">4.1. Operator-based scaling</h3>
 <div class="paragraph">
 <p>To scale your Replica Set you just need to specify how many <code>replicas</code> you wish by default in your Replica Set YAML file. The default value of 1 should ensure that there is always a pod running. If a pod terminates (or the host running the pod terminates) then Kubernetes will automatically spin up another pod for you.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autoscaling">3.2. Autoscaling</h3>
+<h3 id="autoscaling">4.2. Autoscaling</h3>
 <div class="paragraph">
 <p>To autoscale you need to annotate your Replica Set with the metadata required, such as CPU limits or custom metrics so that Kubernetes knows when to scale up or down the number of pods. Then you can create a <a href="http://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/">HorizontalPodAutoscaler</a> to let Kubernetes know certain pods/ReplicaSets should participate in autoscaling.</p>
 </div>
@@ -1261,7 +1263,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect1">
-<h2 id="service-discovery">4. Service Discovery</h2>
+<h2 id="service-discovery">5. Service Discovery</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="../services.html">Services</a> are implemented by one or more <a href="../pods.html">pods</a> for <a href="highAvailability.html">Elasticity and Resilience</a>. In the cloud <a href="../pods.html">pods</a> can come and go when there are hardware failures or when pods get rescheduled onto different nodes to improve resource utilisation.</p>
@@ -1270,12 +1272,12 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 <p>To use a service you need to dynamically discover the pods implementing the service so that you can invoke it. This is called <em>service discovery</em>.</p>
 </div>
 <div class="sect2">
-<h3 id="kubernetes-service-discovery">4.1. Kubernetes Service Discovery</h3>
+<h3 id="kubernetes-service-discovery">5.1. Kubernetes Service Discovery</h3>
 <div class="paragraph">
 <p>The default way to discover the pods for a <a href="../services.html">kubernetes service</a> is via DNS names.</p>
 </div>
 <div class="sect3">
-<h4 id="service-discovery-via-dns">4.1.1. Service discovery via DNS</h4>
+<h4 id="service-discovery-via-dns">5.1.1. Service discovery via DNS</h4>
 <div class="paragraph">
 <p>For a service named <code>foo-bar</code> you can just hard code the host name <code>foo-bar</code> in your application code.</p>
 </div>
@@ -1290,7 +1292,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect3">
-<h4 id="service-discovery-via-environment-variables">4.1.2. Service discovery via environment variables</h4>
+<h4 id="service-discovery-via-environment-variables">5.1.2. Service discovery via environment variables</h4>
 <div class="paragraph">
 <p>Kubernetes uses 2 environment variables to expose the fixed IP address and port that you can use to access the service.</p>
 </div>
@@ -1326,7 +1328,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-ribbon">4.1.3. Using Ribbon</h4>
+<h4 id="using-ribbon">5.1.3. Using Ribbon</h4>
 <div class="paragraph">
 <p>If you are using Java to implement your Microservice then you can use Ribbon from NetflixOSS to perform process local load balancing over the available endpoints.</p>
 </div>
@@ -1354,7 +1356,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect1">
-<h2 id="load-balancing">5. Load Balancing</h2>
+<h2 id="load-balancing">6. Load Balancing</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>When you have one or more pods implementing a <a href="../services.html">service</a> then you need to load balance requests across them.</p>
@@ -1371,7 +1373,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect1">
-<h2 id="design-for-failure">6. Design for failure</h2>
+<h2 id="design-for-failure">7. Design for failure</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Traditionally we&#8217;ve tried to "avoid" failure by doing whatever we could to make services/components "not fail". We would deploy monolithic "appliances" (hardware or software) and if that appliance failed it was a significant event. As we start to move toward distributed systems, especially Microservices, we find that there are many more points of failure. Microservices are implemented as a collection of services that evolve independently and interact and react to their surrounding environments including the changing of user/customer behaviors, business strategy/direction, system behavior, and even other services. One premise of these types of complex-adaptive systems is the ability to withstand failures and unexpected faults.</p>
@@ -1396,19 +1398,19 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </ul>
 </div>
 <div class="sect3">
-<h4 id="maximize-service-availability">6.1. Maximize service availability</h4>
+<h4 id="maximize-service-availability">7.1. Maximize service availability</h4>
 <div class="paragraph">
 <p>We know services individually can fail or be removed from a cluster for any number of reasons. We&#8217;d like for clients to have many options for connecting to a service so we run many <code>replicas</code> of them as described in <a href="elasticity.md">Elasticity and Resilience</a>. When services fail, or are removed from the cluster, we also want to maximize the ability to failover from a client perspective. For this we rely on <a href="serviceDiscovery.md">Service Discovery</a>. With both of those concepts in place we can simply rely on the infrastructure to maximize the availability of our services.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="self-healing">6.2. Self healing</h4>
+<h4 id="self-healing">7.2. Self healing</h4>
 <div class="paragraph">
 <p>Another critical pattern of a Microservices environment is to enable self healing. If services fail, do we need manual intervention? Ideally the system would be able to identify faults and correct them. The simplest way to correct a faulty service is to just kill it and restart. Kubernetes provides this type of ability for us with <a href="http://kubernetes.io/docs/user-guide/liveness/">Liveness and Health checks</a>. When liveness or health checks run, and they find that a system is not in a healthy state, the service will be killed. Combined with <a href="../replicationControllers.html">ReplicaSets</a>, Kubernetes will restore the service to maintain the desired number of <code>replicas</code> Fabric8 <a href="../mavenFabric8Json.md">has tooling</a> for <a href="../forge.md">enabling liveness and health checks by default</a> when we deploy our services.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="isolate-blast-radius-of-failures">6.3. Isolate blast radius of failures</h4>
+<h4 id="isolate-blast-radius-of-failures">7.3. Isolate blast radius of failures</h4>
 <div class="paragraph">
 <p>When services on which we depend (other Microservices, databases, message queues, caches, etc) start experiencing faults we need to be able to limit the extent of that damage so it doesn&#8217;t cause cascading failures. The first step for doing this starts at the application level. Tools like <a href="https://github.com/Netflix/Hystrix">Netflix Hystrix</a> provide <a href="http://skife.org/architecture/fault-tolerance/2009/12/31/bulkheads.html">bulkheading</a> and within Fabric8 we can use <a href="https://github.com/fabric8io/kubeflix">kubeflix project</a>. Hystrix within the Kubeflix project allows us to:</p>
 </div>
@@ -1436,7 +1438,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect3">
-<h4 id="prove-your-system-has-been-designed-for-failure">6.4. Prove your system has been designed for failure</h4>
+<h4 id="prove-your-system-has-been-designed-for-failure">7.4. Prove your system has been designed for failure</h4>
 <div class="paragraph">
 <p>When you&#8217;ve designed your system with failure in mind and able to withstand faults, a useful technique is to continuously prove whether or not this is true. With fabric8, we have an out of the box <a href="../chaosMonkey.md">chaos monkey</a> that can go through your Kubernetes namespaces and randomly kill pods in any of your environments including production. If you&#8217;ve not designed your services to be able to withstand these types of faults, then you want to know with fast feedback. Chaos monkey can provide that feedback.</p>
 </div>
@@ -1444,7 +1446,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect1">
-<h2 id="configuration">7. Configuration</h2>
+<h2 id="configuration">8. Configuration</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>As developers we usually try to make the software we create easy to configure so that it can be used in any environment.</p>
@@ -1475,7 +1477,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 <p>However for times when you really need to configure things differently on a per environment/deployment basis then here are the main approaches:</p>
 </div>
 <div class="sect3">
-<h4 id="include-configuration-inside-the-docker-image">7.1. Include configuration inside the docker image</h4>
+<h4 id="include-configuration-inside-the-docker-image">8.1. Include configuration inside the docker image</h4>
 <div class="paragraph">
 <p>The simplest thing to do with configuration is just include it inside your docker image. e.g. if you are building a Spring Boot Microservice then just include the <code>application.properties</code> or <code>application.yml</code> file inside your <code>src/main/resources</code> folder so that it gets included into your jar and the docker image. This then means that all your configuration gets tested as part of your <a href="http://fabric8.io/guide/cdelivery.html">CI / CD Pipeline</a></p>
 </div>
@@ -1490,7 +1492,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect3">
-<h4 id="configmap">7.2. ConfigMap</h4>
+<h4 id="configmap">8.2. ConfigMap</h4>
 <div class="paragraph">
 <p>Kubernetes supports a resource called <a href="http://kubernetes.io/docs/user-guide/configmap/">ConfigMap</a> which is used to store <strong>environment specific</strong> configuration values - all other configuration values should be inside the docker image as described above.</p>
 </div>
@@ -1502,7 +1504,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect3">
-<h4 id="git">7.3. Git</h4>
+<h4 id="git">8.3. Git</h4>
 <div class="paragraph">
 <p>One of the downsides of using <code>ConfigMap</code> as described above is that there&#8217;s no history or change tracking; there&#8217;s just the latest version of the ConfigMap. For complex configuration its very useful to have a changelog so you can see who changed what configuration values when so that when things start to go wrong you can easily revert changes or see the history.</p>
 </div>
@@ -1523,7 +1525,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect3">
-<h4 id="choosing-the-right-approach">7.4. Choosing the right approach</h4>
+<h4 id="choosing-the-right-approach">8.4. Choosing the right approach</h4>
 <div class="paragraph">
 <p>We recommend you try to keep the environment specific configuration down to a minimum as that increases the amount of resuable immuable artifacts (docker images and kubernetes resources) that can be used without modification in any environment and promotes confidence and testing of those artifacts across your <a href="http://fabric8.io/guide/cdelivery.html">CI / CD Pipeline</a>.</p>
 </div>
@@ -1544,7 +1546,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 <div class="sect1">
-<h2 id="pipelines">8. Pipelines</h2>
+<h2 id="pipelines">9. Pipelines</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To go faster developing Microservices its great to automate everything and have a <em>Continuous Deployment pipeline</em> for each Microservice. The pipeline then defines how to:</p>
@@ -1578,7 +1580,7 @@ pipeline from the <a href="../jenkinsWorkflowLibrary.html">Reusable Pipeline Lib
 </div>
 </div>
 <div class="sect1">
-<h2 id="logging">9. Logging</h2>
+<h2 id="logging">10. Logging</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Logging is a key part of being able to understand Microservices and diagnose issues. Consolidating log statements and events and being able to query and visualise them is an extremely useful tool.</p>
@@ -1602,7 +1604,7 @@ pipeline from the <a href="../jenkinsWorkflowLibrary.html">Reusable Pipeline Lib
 </div>
 </div>
 <div class="sect1">
-<h2 id="monitoring">10. Monitoring</h2>
+<h2 id="monitoring">11. Monitoring</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Capturing historical metrics is essential to diagnose issues involving your Microservices. Its also very useful for <a href="elasticity.html">auto scaling</a></p>
@@ -1616,7 +1618,7 @@ pipeline from the <a href="../jenkinsWorkflowLibrary.html">Reusable Pipeline Lib
 </div>
 </div>
 <div class="sect1">
-<h2 id="circuit-breakers">11. Circuit Breakers</h2>
+<h2 id="circuit-breakers">12. Circuit Breakers</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Adding circuit breakers via the <a href="https://github.com/Netflix/Hystrix">Hystrix</a> library helps you fail fast or provide a fallback if any dependent service either goes down or goes too slow.</p>
@@ -1636,11 +1638,11 @@ pipeline from the <a href="../jenkinsWorkflowLibrary.html">Reusable Pipeline Lib
 </ul>
 </div>
 <div class="sect2">
-<h3 id="a-href-spring-cloud-netflix-spring-cloud-netflix-a">11.1. <a href="#spring-cloud-netflix">Spring Cloud - Netflix</a></h3>
+<h3 id="a-href-spring-cloud-netflix-spring-cloud-netflix-a">12.1. <a href="#spring-cloud-netflix">Spring Cloud - Netflix</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="standalone-applications">11.2. Standalone applications</h3>
+<h3 id="standalone-applications">12.2. Standalone applications</h3>
 <div class="paragraph">
 <p>Using Hystrix is as simple as implementing the <a href="https://github.com/Netflix/Hystrix/blob/master/hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommand.java">HystrixCommand</a> interface.
 Borrowed from <a href="https://github.com/Netflix/Hystrix/tree/master/hystrix-examples">hystrix examples</a> here is a simple <em>Hello World</em> implementation:</p>
@@ -1674,7 +1676,7 @@ Borrowed from <a href="https://github.com/Netflix/Hystrix/tree/master/hystrix-ex
 <p>This is enough to implement a circuit breaker.</p>
 </div>
 <div class="sect3">
-<h4 id="exposing-hystrix-metrics">11.2.1. Exposing Hystrix metrics</h4>
+<h4 id="exposing-hystrix-metrics">12.2.1. Exposing Hystrix metrics</h4>
 <div class="paragraph">
 <p>To expose metrics from the circuit breaker one needs to expose the <a href="https://github.com/Netflix/Hystrix/blob/master/hystrix-contrib/hystrix-metrics-event-stream/src/main/java/com/netflix/hystrix/contrib/metrics/eventstream/HystrixMetricsStreamServlet.java">HystrixMetricsStreamServlet</a>, which can be found inside:</p>
 </div>
@@ -1706,7 +1708,7 @@ Borrowed from <a href="https://github.com/Netflix/Hystrix/tree/master/hystrix-ex
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-the-hystrix-dashboard">11.2.2. Using the Hystrix dashboard</h4>
+<h4 id="using-the-hystrix-dashboard">12.2.2. Using the Hystrix dashboard</h4>
 <div class="paragraph">
 <p>An application that is <a href="#exposing-hystrix-metrics">exposing its hystrix metrics stream</a> can take advantage of the visualization capabilities of the <a href="https://github.com/Netflix/Hystrix/tree/master/hystrix-dashboard">Hystrix Dashboard</a>.</p>
 </div>
@@ -1715,7 +1717,7 @@ Borrowed from <a href="https://github.com/Netflix/Hystrix/tree/master/hystrix-ex
 </div>
 </div>
 <div class="sect3">
-<h4 id="using-turbine-to-aggregate-multiple-hystrix-stream">11.2.3. Using Turbine to aggregate multiple hystrix stream</h4>
+<h4 id="using-turbine-to-aggregate-multiple-hystrix-stream">12.2.3. Using Turbine to aggregate multiple hystrix stream</h4>
 <div class="paragraph">
 <p>To make the most out of the Hystrix dashboard you can aggregate multiple streams and have the dashboard visualize multiple circuit breakers at once.</p>
 </div>
@@ -1725,7 +1727,7 @@ Borrowed from <a href="https://github.com/Netflix/Hystrix/tree/master/hystrix-ex
 </div>
 </div>
 <div class="sect2">
-<h3 id="kubeflix">11.3. Kubeflix</h3>
+<h3 id="kubeflix">12.3. Kubeflix</h3>
 <div class="paragraph">
 <p>Everything that has been mentioned so far is something that can easily used inside simple java application. But if those application are to be run inside Kubernetes, there will be some additional requirements:</p>
 </div>
@@ -1743,7 +1745,7 @@ Borrowed from <a href="https://github.com/Netflix/Hystrix/tree/master/hystrix-ex
 </ul>
 </div>
 <div class="sect3">
-<h4 id="circuit-breaker-discovery">11.3.1. Circuit Breaker Discovery</h4>
+<h4 id="circuit-breaker-discovery">12.3.1. Circuit Breaker Discovery</h4>
 <div class="paragraph">
 <p>In most cloud environments ip addresses are not known in advanced and kubernetes is no exception. This means that we can&#8217;t have Turbine pre-configured with a fixed set of urls but instead we need a discovery mechanism.
 This mechanism is provided by Kubeflix and it pretty much allows to:</p>
@@ -1760,7 +1762,7 @@ This mechanism is provided by Kubeflix and it pretty much allows to:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="turbine-server-docker-image">11.3.2. Turbine Server Docker image</h4>
+<h4 id="turbine-server-docker-image">12.3.2. Turbine Server Docker image</h4>
 <div class="paragraph">
 <p>Having a discovery implementation for turbine is not enough. We also need a turbine server app packaged as a docker container and of course the required Kubernetes configuration.
 Kubeflix provides both (image and configuration).</p>
@@ -1783,7 +1785,7 @@ Kubeflix provides both (image and configuration).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="hystrix-dashboard-docker-image">11.3.3. Hystrix Dashboard Docker image</h4>
+<h4 id="hystrix-dashboard-docker-image">12.3.3. Hystrix Dashboard Docker image</h4>
 <div class="paragraph">
 <p>For the Hystrix dashboard we also need to package it as a Docker container and create the required Kubernetes configuration.
 Again Kubeflix provides both. On top of that web console is configured to reference Turbine Servers DNS name <strong>out of the box</strong>.</p>
@@ -1797,7 +1799,7 @@ Again Kubeflix provides both. On top of that web console is configured to refere
 </div>
 </div>
 <div class="sect2">
-<h3 id="wildfly-swarm-netflix">11.4. Wildfly Swarm Netflix</h3>
+<h3 id="wildfly-swarm-netflix">12.4. Wildfly Swarm Netflix</h3>
 <div class="paragraph">
 <p>Taken directly from the <a href="http://wildfly-swarm.io">Wildfly Swarm Website</a>:</p>
 </div>
@@ -1817,7 +1819,7 @@ Again Kubeflix provides both. On top of that web console is configured to refere
 <p>—</p>
 </div>
 <div class="sect3">
-<h4 id="spring-cloud-netflix">11.4.1. Spring Cloud Netflix</h4>
+<h4 id="spring-cloud-netflix">12.4.1. Spring Cloud Netflix</h4>
 <div class="paragraph">
 <p>This project provides integration between Spring Cloud and the Netflix components, including Hystrix as a <strong>Circuit breaker</strong> implementation.
 On top of that it provides integration with <a href="https://github.com/Netflix/ribbon">Ribbon</a> and makes it easy to compose rest application that communicate with each other.</p>
@@ -1830,7 +1832,7 @@ On top of that it provides integration with <a href="https://github.com/Netflix/
 </div>
 </div>
 <div class="sect1">
-<h2 id="tracing">12. Tracing</h2>
+<h2 id="tracing">13. Tracing</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>One of the biggest challenges of Microservices is comprehending whats really happening at runtime. Certainly <a href="logging.html">logging</a> and <a href="metrics.html">metrics</a> really help. In addition tracing can really help comprehend how Microservices interact and diagnose performance issues.</p>
@@ -1847,7 +1849,7 @@ On top of that it provides integration with <a href="https://github.com/Netflix/
 <div id="footer">
 <div id="footer-text">
 Version <br>
-Last updated 2016-09-05 11:14:32 UTC
+Last updated 2016-09-05 11:28:27 UTC
 </div>
 </div>
 </body>

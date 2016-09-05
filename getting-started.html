@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>Getting Started</title>
+<title>Create your Spring Boot application</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -509,69 +509,23 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 </head>
-<body class="article toc2 toc-left">
+<body id="create-your-spring-boot-app" class="article toc2 toc-left">
 <div id="header">
-<h1>Getting Started</h1>
+<h1>Create your Spring Boot application</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#make-jar-not-war-we-need-moar">Make JAR not WAR. We need Moar!</a></li>
-<li><a href="#isn-t-docker-and-kubernetes-complicated">Isn&#8217;t Docker and Kubernetes complicated?</a></li>
-<li><a href="#do-i-need-to-do-anything-different-for-my-spring-boot-app">Do I need to do anything different for my Spring Boot app?</a></li>
-<li><a href="#create-your-spring-boot-application">Create your Spring Boot application</a>
-<ul class="sectlevel2">
 <li><a href="#spring-initializr-or-existing-spring-projects">Spring Initializr or existing Spring projects</a></li>
 <li><a href="#jboss-developer-studio">JBoss Developer Studio</a></li>
 <li><a href="#intellij">IntelliJ</a></li>
-</ul>
-</li>
-<li><a href="#spring-boot-on-kubernetes">Spring Boot on Kubernetes</a>
-<ul class="sectlevel2">
+<li><a href="#spring-boot-on-kubernetes">Spring Boot on Kubernetes</a></li>
 <li><a href="#openshif-s2i-binary-builds">OpenShif s2i binary builds</a></li>
-</ul>
-</li>
-<li><a href="#we-want-to-continuously-deliver-spring-boot-microservices">We want to continuously deliver Spring Boot microservices!</a></li>
-<li><a href="#where-to-next">Where to next?</a></li>
+<li><a href="#continuous-delivery">Continuous Delivery</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>This document will help you get started building applications with Spring Boot that run on Kubernetes and various distributions of Kubernetes (ie, OpenShift v3.x).</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="make-jar-not-war-we-need-moar">Make JAR not WAR. We need Moar!</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Spring Boot is a great way to build simple Java microservices and has a vibrant ecosystem to help facilitate. Spring Boot and its surrounding ecosystem go to great lengths to help developers get started with microservices including taking some of the pain out of configuration, health checking, boostrapping etc. For example, Spring Boot prefers an "uber-jar" model of packaging a microservice which is executable on its own. This helps reduce the many mistakes that can happen when trying to juggle application servers + WARs/EARs as well as simplifies the classloading model for those apps that can get away with it. When we&#8217;re deploying lots of microservices, we want to eliminate configuration drift as much as possible and reason about our apps without adding complications between environments.</p>
-</div>
-<div class="paragraph">
-<p>Building to uber jars does help with this but is not the end of the story. As we further our quest to reduce configuration drift between environments for our apps we must also be aware of this fact: A Java based microservice depends fully on a JVM. The JVM <em>is</em> a very important implementation detail of our Java application. As are the dependencies and transitive dependencies of the JVM (libc, etc). A developer that created an app using a particular JVM on, let&#8217;s say, Windows could potentially behave quite differently on a different JVM running on Linux (in a QA environment, let&#8217;s say). You&#8217;ll want a way to capture the complete snapshot of binaries that make up you application and Linux Containers and associated image formats is a great way to do that.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="isn-t-docker-and-kubernetes-complicated">Isn&#8217;t Docker and Kubernetes complicated?</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>There&#8217;s an interesting dynamic between "yah we need this" and "well, it&#8217;s too complicated". We can hope and pray and ignore it? But really, what if we just made it easier to build your Docker images and deploy to Kubernetes? That&#8217;s what the fabric8 tooling does for you. It allows you to just use the same developer tools you use today and take advantage of building and deploying cloud-native applications on Kubernetes.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="do-i-need-to-do-anything-different-for-my-spring-boot-app">Do I need to do anything different for my Spring Boot app?</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>No! Here&#8217;s how we get started.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="create-your-spring-boot-application">Create your Spring Boot application</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Go to <a href="http://start.spring.io">http://start.spring.io</a> and create your app. That&#8217;s it. You have other options too:</p>
@@ -608,8 +562,11 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="spring-initializr-or-existing-spring-projects">Spring Initializr or existing Spring projects</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="spring-initializr-or-existing-spring-projects">Spring Initializr or existing Spring projects</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>STS, start.spring.io, and the spring-boot CLI all use Spring Initializr under the covers.</p>
 </div>
@@ -648,8 +605,10 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="jboss-developer-studio">JBoss Developer Studio</h3>
+</div>
+<div class="sect1">
+<h2 id="jboss-developer-studio">JBoss Developer Studio</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>JBoss Developer Studio has JBoss Forge tooling installed by default. Press <code>CTRL+4</code> or <code>CMD+4</code> if on Mac to get the forge window. If you haven&#8217;t already, install the Fabric8 <code>devops</code> plugin which will enable the Spring Boot project wizards. You can install the addon from within JBDS by hitting <code>CTRL/CMD+4</code> and type <code>addon</code> and find the option for installing. Use the coordinate below:</p>
 </div>
@@ -705,8 +664,10 @@ table.CodeRay td.code>pre{padding:0}
 &lt;p&gt;&lt;a href="https://vimeo.com/180053437"&gt;Spring Boot, Spring Cloud with Kubernetes and Fabric8&lt;/a&gt; from &lt;a href="https://vimeo.com/ceposta"&gt;Christian Posta&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="intellij">IntelliJ</h3>
+</div>
+<div class="sect1">
+<h2 id="intellij">IntelliJ</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>JBoss Forge doesn&#8217;t come out of the box with IntelliJ but through IntelliJ&#8217;s amazing plugin system, we can easily added it! Just note, you should be running IntelliJ with JDK 1.8+. Newer versions of IntelliJ bundle and use JDK 1.8 out of the box. If you&#8217;ve an older version of IntelliJ, hit <code>CMD/CTRL+SHIFT+A</code> to get the <code>All Actions</code> dialog box and start typing <code>SDK</code>. Follow the instructions to change the SDK.</p>
 </div>
@@ -745,7 +706,6 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/intellij-f-m-p-added.png" alt="intellij fmp added"></span></p>
-</div>
 </div>
 </div>
 </div>
@@ -972,8 +932,11 @@ NAME                READY     STATUS    RESTARTS   AGE
 ipservice-1-v3hjc   1/1       Running   0          1m</code></pre>
 </div>
 </div>
-<div class="sect2">
-<h3 id="openshif-s2i-binary-builds">OpenShif s2i binary builds</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="openshif-s2i-binary-builds">OpenShif s2i binary builds</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>What if we wanted to use OpenShift to build the Docker image? What if we weren&#8217;t able to install a Docker daemon locally and wanted to use OpenShift to do the docker builds? Easy! Just change the mode from (default: <code>kubernetes</code>) to <code>openshift</code>:</p>
 </div>
@@ -1001,10 +964,12 @@ ipservice-1-v3hjc   1/1       Running   0          1m</code></pre>
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="we-want-to-continuously-deliver-spring-boot-microservices">We want to continuously deliver Spring Boot microservices!</h2>
+<h2 id="continuous-delivery">Continuous Delivery</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>We want to continuously deliver Spring Boot microservices!</p>
+</div>
 <div class="paragraph">
 <p>Creating a project as we did above is okay to get started. A lot of times we create projects and then for each one have to go through the steps of setting up a git repository, setting up builds in some kind of CI system, and then fabricating a deployment pipeline that suits us. Then we have to connect all those pieces together. If we want to use containers and run them in Kubernetes then we have to go try find all of the plugins and configure them (and understand the nuance of each). What if we could just do all of this with a couple clicks?</p>
 </div>
@@ -1087,21 +1052,10 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="where-to-next">Where to next?</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>We hope this is enough to get you going. We&#8217;ve created Spring Boot applications from scratch and used the Fabric8 tools to help us get our application into a Kubernetes cluster. We&#8217;ve also covered using the awesome Fabric8 console for bootstrapping your Spring Boot app and fabricating you a CI/CD pipeline to be able to continuously deliver your microservice in the cloud. Where to next?</p>
-</div>
-<div class="paragraph">
-<p>TBD</p>
-</div>
-</div>
-</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-09-05 11:14:32 UTC
+Last updated 2016-09-05 11:28:27 UTC
 </div>
 </div>
 </body>
