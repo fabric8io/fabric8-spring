@@ -3,7 +3,7 @@ echo ============================================
 echo Deploying fabric8-spring documentation
 echo ============================================
 
-cd doc && \
+cd docs && \
 mvn -Phtml,pdf package && \
 git clone -b gh-pages https://jstrachan:${GITHUB_TOKEN}@github.com/fabric8io/fabric8-spring.git gh-pages && \
 git config --global user.email "travis@fabric8.io" && \
