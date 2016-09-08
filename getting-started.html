@@ -578,7 +578,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>mvn io.fabric8:fabric8-maven-plugin:${fabric8.maven.plugin.version}:setup</code></pre>
+<pre class="CodeRay highlight"><code data-lang="sh">mvn io.fabric8:fabric8-maven-plugin:3.1.32:setup</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -586,21 +586,23 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>&lt;build&gt;
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;build&gt;</span>
   ...
-     &lt;plugins&gt;
-       &lt;plugin&gt;
-       &lt;groupId&gt;io.fabric8&lt;/groupId&gt;
-       &lt;artifactId&gt;fabric8-maven-plugin&lt;/artifactId&gt;
-       &lt;version&gt;${fabric8.maven.plugin.version}&lt;/version&gt;
-       &lt;executions&gt;
-         &lt;execution&gt;
-           &lt;goals&gt;
-             &lt;goal&gt;resource&lt;/goal&gt;
-           &lt;/goals&gt;
-         &lt;/execution&gt;
-       &lt;/executions&gt;
-       &lt;/plugin&gt;
+     <span class="tag">&lt;plugins&gt;</span>
+       <span class="tag">&lt;plugin&gt;</span>
+       <span class="tag">&lt;groupId&gt;</span>io.fabric8<span class="tag">&lt;/groupId&gt;</span>
+       <span class="tag">&lt;artifactId&gt;</span>fabric8-maven-plugin<span class="tag">&lt;/artifactId&gt;</span>
+       <span class="tag">&lt;version&gt;</span>3.1.32<span class="tag">&lt;/version&gt;</span>
+       <span class="tag">&lt;executions&gt;</span>
+         <span class="tag">&lt;execution&gt;</span>
+           <span class="tag">&lt;goals&gt;</span>
+             <span class="tag">&lt;goal&gt;</span>resource<span class="tag">&lt;/goal&gt;</span>
+             <span class="tag">&lt;goal&gt;</span>helm<span class="tag">&lt;/goal&gt;</span>
+             <span class="tag">&lt;goal&gt;</span>build<span class="tag">&lt;/goal&gt;</span>
+           <span class="tag">&lt;/goals&gt;</span>
+         <span class="tag">&lt;/execution&gt;</span>
+       <span class="tag">&lt;/executions&gt;</span>
+       <span class="tag">&lt;/plugin&gt;</span>
   ...</code></pre>
 </div>
 </div>
@@ -1055,7 +1057,7 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-09-05 11:28:27 UTC
+Last updated 2016-09-08 10:03:43 UTC
 </div>
 </div>
 </body>
