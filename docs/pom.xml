@@ -34,6 +34,10 @@
 
   <name>Fabric8 Spring :: Documentation</name>
 
+  <properties>
+    <fabric8.maven.plugin.version>3.1.32</fabric8.maven.plugin.version>
+  </properties>
+
   <dependencies>
 
     <dependency>
@@ -82,7 +86,7 @@
             <attributes>
               <icons>font</icons>
               <pagenums/>
-              <version>${version.fmp-release}</version>
+              <version>${fabric8.maven.plugin.version}</version>
               <idprefix/>
               <idseparator>-</idseparator>
               <allow-uri-read>true</allow-uri-read>
@@ -125,6 +129,7 @@
                   <attributes>
                     <toc>left</toc>
                     <linkcss>false</linkcss>
+                    <version>${fabric8.maven.plugin.version}</version>
                   </attributes>
                 </configuration>
               </execution>
@@ -156,6 +161,7 @@
                   <sourceHighlighter>rouge</sourceHighlighter>
                   <attributes>
                     <toc/>
+                    <version>${fabric8.maven.plugin.version}</version>
                   </attributes>
                 </configuration>
               </execution>

@@ -23,14 +23,14 @@ To kubernetes enable your Spring projectyou will need to enable the http://maven
 
 The simplest way to do this is by using the https://maven.fabric8.io/#fabric8:setup[fabric8:setup] goal from the maven plugin; this will add the necessary maven plugin configuration to your `pom.xml` file.
 
-[source]
+[source,sh,subs="attributes"]
 ----
-mvn io.fabric8:fabric8-maven-plugin:${fabric8.maven.plugin.version}:setup
+mvn io.fabric8:fabric8-maven-plugin:{version}:setup
 ----
 
 Or you can manually add the following section to your `pom.xml` by hand:
 
-[source]
+[source,xml,indent=0,subs="verbatim,quotes,attributes"]
 ----
 <build>
   ...
@@ -38,11 +38,13 @@ Or you can manually add the following section to your `pom.xml` by hand:
        <plugin>
        <groupId>io.fabric8</groupId>
        <artifactId>fabric8-maven-plugin</artifactId>
-       <version>${fabric8.maven.plugin.version}</version>
+       <version>{version}</version>
        <executions>
          <execution>
            <goals>
              <goal>resource</goal>
+             <goal>helm</goal>
+             <goal>build</goal>
            </goals>
          </execution>
        </executions>
