@@ -19,7 +19,7 @@ We can also do with these, but will be covered in a different section:
 
 STS, start.spring.io, and the spring-boot CLI all use Spring Initializr under the covers. 
 
-To kubernetes enable your Spring projectyou will need to enable the http://maven.fabric8.io/[fabric8 maven plugin]. 
+To kubernetes enable your Spring project, you will need to enable the http://maven.fabric8.io/[fabric8 maven plugin].
 
 The simplest way to do this is by using the https://maven.fabric8.io/#fabric8:setup[fabric8:setup] goal from the maven plugin; this will add the necessary maven plugin configuration to your `pom.xml` file.
 
@@ -63,7 +63,7 @@ image:addon-install.png[addon install]
 addon-install --coordinate io.fabric8.forge:devops,2.3.18
 ----
 
-Quick Note: You can also install this from the CLI.
+The forge tooling is great because it allows you to declaratively add components/code to your project (kind of like https://www.atomist.com[atomist]) and we recommend it. However, you could just use the `fabric8:setup` goal as we did above from within your IDE as well.
 
 Now when you `CTRL/CMD+4` you can type `project` and select the `Project New` option. When you begin creating the new project, fill in the Project Name, Package Name, etc. and make sure to change the Project Type to 'spring boot':
 
@@ -278,34 +278,42 @@ items:
 
 Wow! It built out a Kubernetes Service and Kubernetes Deployment resource file/manifest for us! We didn't have to touch a single line of yaml/json!
 
-Let's deploy our application then:
+Let's run our application:
 
 [source]
 ----
-$ mvn fabric8:deploy
-Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1512m; support was removed in 8.0
-[INFO] Scanning for projects...
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building demo 1.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- fabric8-maven-plugin:3.1.23:deploy (default-cli) @ ipservice ---
-[INFO] F8> Using OpenShift at https://192.168.64.7:8443/ in namespace ipservice with manifest /Users/ceposta/dev/jbds/workspaces/idsdemo/ipservice/target/classes/META-INF/fabric8/openshift.yml 
-[INFO] OpenShift platform detected
-[INFO] Using project: ipservice
-[INFO] Creating a Service from openshift.yml namespace ipservice name ipservice
-[INFO] Created Service: target/fabric8/applyJson/ipservice/service-ipservice.json
-[INFO] Creating a DeploymentConfig from openshift.yml namespace ipservice name ipservice
-[INFO] Created DeploymentConfig: target/fabric8/applyJson/ipservice/deploymentconfig-ipservice.json
-[INFO] Creating Route ipservice:ipservice host: 
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 3.447 s
-[INFO] Finished at: 2016-09-02T14:14:44-07:00
-[INFO] Final Memory: 34M/335M
-[INFO] ------------------------------------------------------------------------
+$ mvn fabric8:run
+
+...
+
+[INFO] F8:
+[INFO] F8:   .   ____          _            __ _ _
+[INFO] F8:  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[INFO] F8: ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[INFO] F8:  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[INFO] F8:   '  |____| .__|_| |_|_| |_\__, | / / / /
+[INFO] F8:  =========|_|==============|___/=/_/_/_/
+[INFO] F8:  :: Spring Boot ::        (v1.3.7.RELEASE)
+[INFO] F8:
+[INFO] F8: 2016-10-13 15:28:25.036  INFO 1 --- [           main] b.c.PropertySourceBootstrapConfiguration : Located property source: ConfigMapPropertySource [name='c
+onfigmap.helloservice.demos']
+[INFO] F8: 2016-10-13 15:28:25.107  INFO 1 --- [           main] com.example.SimpleHelloWorldApplication  : The following profiles are active: kubernetes
+[INFO] F8: 2016-10-13 15:28:25.130  INFO 1 --- [           main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.Anno
+tationConfigEmbeddedWebApplicationContext@76a3e297: startup date [Thu Oct 13 15:28:25 UTC 2016]; parent: org.springframework.context.annotation.AnnotationConfigAppli
+cationContext@3d8c7aca
+[INFO] F8: 2016-10-13 15:28:26.438  WARN 1 --- [           main] o.s.c.a.ConfigurationClassPostProcessor  : Cannot enhance @Configuration bean definition 'refreshSco
+pe' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: C
+onsider declaring such methods as 'static'.
+[INFO] F8: 2016-10-13 15:28:26.650  INFO 1 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=42012acd-ba39-3d3f-a192-f858c774cda3
+[INFO] F8: 2016-10-13 15:28:26.728  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.Configurati
+onPropertiesRebinderAutoConfiguration' of type [class org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB
+$$384e865e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO] F8: 2016-10-13 15:28:26.738  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.RefreshEndp
+ointAutoConfiguration' of type [class org.springframework.cloud.autoconfigure.RefreshEndpointAutoConfiguration$$EnhancerBySpringCGLIB$$e1ad8854] is not eligible for
+getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO] F8: 2016-10-13 15:28:27.227  INFO 1 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+[INFO] F8: 2016-10-13 15:28:27.244  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+[INFO] F8: 2016-10-13 15:28:27.246  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.36
 ----
 
 Now if we take a look at the deployments/replicasets/pods, we should see our application has been deployed!
@@ -316,6 +324,8 @@ $ kubectl get pod
 NAME                READY     STATUS    RESTARTS   AGE
 ipservice-1-v3hjc   1/1       Running   0          1m
 ----
+
+Have a look at the http://maven.fabric8.io[Fabric8 Maven Plugin] docs to see how to live-reload, debug, import directly to CI/CD, start/stop/undeploy etc your Spring Boot app.
 
 == OpenShif s2i binary builds
 

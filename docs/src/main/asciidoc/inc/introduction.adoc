@@ -13,6 +13,20 @@ Building to uber jars does help with this but is not the end of the story. As we
 
 There's an interesting dynamic between "yah we need this" and "well, it's too complicated". We can hope and pray and ignore it? But really, what if we just made it easier to build your Docker images and deploy to Kubernetes? That's what the fabric8 tooling does for you. It allows you to just use the same developer tools you use today and take advantage of building and deploying cloud-native applications on Kubernetes.
 
+== How easy is it?
+
+Lots of Java developers are used to using application servers, creating deployment units (jars/wars), deploying them and running them in app servers using Maven. Then they can use Maven from the command line or easily inside their IDE to do most of the work.
+
+So we figured, why not make Kubernetes look and feel like an application server to a Java developer? So you build and deploy your application from maven like you would with other maven plugins like spring-boot, tomcat, jetty, wildfly, karaf et al. Then you can get started quickly by just treating Kubernetes as a kind of application server.
+
+Kubernetes is actually way more awesome than an application server; its more like an application cloud as:
+
+* kubernetes can keep running multiple instances of each of your apps including automatic restarts on software or hardware failures
+* automatic load balancing when invoking your apps
+* each app instance is isolated as a separate process so its much easier to monitor metrics and logs
+
+Keep reading to get started with Spring Boot, or checkout http://maven.fabric8.io[how we've made it easy for tomcat, jetty, wildfly, karaf, standalone, etc too!]
+
 == Do I need to do anything different for my Spring Boot app?
 
-No! Here's how we get started.
+No! Just create your Spring Boot app (or use an existing one if you've got one) and add a single maven plugin. That's it! Here's how we get started.
