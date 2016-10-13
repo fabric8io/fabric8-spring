@@ -517,6 +517,7 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel1">
 <li><a href="#make-jar-not-war-we-need-moar">Make JAR not WAR. We need Moar!</a></li>
 <li><a href="#isn-t-docker-and-kubernetes-complicated">Isn&#8217;t Docker and Kubernetes complicated?</a></li>
+<li><a href="#how-easy-is-it">How easy is it?</a></li>
 <li><a href="#do-i-need-to-do-anything-different-for-my-spring-boot-app">Do I need to do anything different for my Spring Boot app?</a></li>
 </ul>
 </div>
@@ -549,17 +550,47 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="sect1">
+<h2 id="how-easy-is-it">How easy is it?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lots of Java developers are used to using application servers, creating deployment units (jars/wars), deploying them and running them in app servers using Maven. Then they can use Maven from the command line or easily inside their IDE to do most of the work.</p>
+</div>
+<div class="paragraph">
+<p>So we figured, why not make Kubernetes look and feel like an application server to a Java developer? So you build and deploy your application from maven like you would with other maven plugins like spring-boot, tomcat, jetty, wildfly, karaf et al. Then you can get started quickly by just treating Kubernetes as a kind of application server.</p>
+</div>
+<div class="paragraph">
+<p>Kubernetes is actually way more awesome than an application server; its more like an application cloud as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>kubernetes can keep running multiple instances of each of your apps including automatic restarts on software or hardware failures</p>
+</li>
+<li>
+<p>automatic load balancing when invoking your apps</p>
+</li>
+<li>
+<p>each app instance is isolated as a separate process so its much easier to monitor metrics and logs</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Keep reading to get started with Spring Boot, or checkout <a href="http://maven.fabric8.io">how we&#8217;ve made it easy for tomcat, jetty, wildfly, karaf, standalone, etc too!</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="do-i-need-to-do-anything-different-for-my-spring-boot-app">Do I need to do anything different for my Spring Boot app?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>No! Here&#8217;s how we get started.</p>
+<p>No! Just create your Spring Boot app (or use an existing one if you&#8217;ve got one) and add a single maven plugin. That&#8217;s it! Here&#8217;s how we get started.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-09-08 10:03:43 UTC
+Last updated 2016-10-13 17:46:17 UTC
 </div>
 </div>
 </body>
