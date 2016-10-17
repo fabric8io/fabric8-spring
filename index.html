@@ -1542,7 +1542,13 @@ You&#8217;ll initially be taken to a dashboard that appears mostly empty. Give i
 <p>You can then expose the <code>ConfigMap</code> resources either as volume mounts or as environment variables.</p>
 </div>
 <div class="paragraph">
-<p>If you are using Spring in your Java based Microservices you may want to check out the <a href="https://github.com/fabric8io/spring-cloud-kubernetes#configmap-propertysource">ConfigMap based PropertySource</a> that makes it really easy to load environment specific configurations along with any other configuration included in your docker image.</p>
+<p>The <a href="https://github.com/fabric8-quickstarts/spring-boot-webmvc">spring-boot-webmvc quickstart</a> uses a <a href="https://github.com/fabric8-quickstarts/spring-boot-webmvc/blob/master/src/main/fabric8/configmap.yml#L4">ConfigMap to store the application.properties file</a> which is then mounted into each Pod via the <a href="https://github.com/fabric8-quickstarts/spring-boot-webmvc/blob/master/src/main/fabric8/deployment.yml#L5-L15">deployment.yml</a>. Then Spring Boot will load the <code>application.properties</code> entry from this ConfigMap on startup!</p>
+</div>
+<div class="paragraph">
+<p>Another approach if you are using Spring is the <a href="https://github.com/fabric8io/spring-cloud-kubernetes#configmap-propertysource">ConfigMap based PropertySource</a> which loads environment specific configurations from a ConfigMap.</p>
+</div>
+<div class="paragraph">
+<p>Both these approaches have a similar effect; the former reuses kubernetes manifest to wire things up; the latter uses a new maven dependency and Java code to achieve a similar effect.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1891,7 +1897,7 @@ On top of that it provides integration with <a href="https://github.com/Netflix/
 <div id="footer">
 <div id="footer-text">
 Version 3.1.32<br>
-Last updated 2016-10-13 17:46:17 UTC
+Last updated 2016-10-17 08:27:32 UTC
 </div>
 </div>
 </body>
